@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.52.1",
+    "bootstrap-icons": "^1.11.1",
+    "sass": "^1.69.3",
+    "vitepress": "^1.0.0-rc.21"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10"
+  }
+}

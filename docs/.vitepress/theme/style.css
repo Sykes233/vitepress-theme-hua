@@ -1,0 +1,26 @@
+
+html {
+  min-height: 100vh;
+  position: relative;
+  font-family: Arial, Helvetica;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    background-color: var(--color-bg-1);
+    line-height: 1.725;
+}
+
+body[arco-theme] .vp-code-light {
+  display: none
+}
+
+body:not([arco-theme]) .vp-code-dark{
+  display: none;
+}
