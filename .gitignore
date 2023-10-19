@@ -1,4 +1,4 @@
-docs/.vitepress/cache/*
-docs/.vitepress/dist/*
-docs/posts/*
+docs/.vitepress/cache
+docs/.vitepress/dist
+docs/posts
 node_modules
