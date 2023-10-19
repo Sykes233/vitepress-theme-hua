@@ -33,7 +33,7 @@ const { frontmatter } = useData()
             </div>
         </template>
         <template #footer>
-            <div class="footer">Powered by Hua © 2023</div>
+            <div class="footer">Powered by <a href="http://lijunhua.cn">Hua</a> © 2023</div>
         </template>
     </MyLayout>
 </template>
@@ -55,6 +55,10 @@ const { frontmatter } = useData()
     left: 50%;
     transform: translateX(-50%);
     max-height: 5rem;
+    color: var(--color-text-1);
+}
+
+.footer a{
     color: var(--color-text-1);
 }
 
