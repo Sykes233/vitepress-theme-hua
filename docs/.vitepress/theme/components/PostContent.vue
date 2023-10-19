@@ -13,8 +13,12 @@
         font-size: 1rem;
     }
 
+    & h3 {
+        font-size: 1rem;
+    }
+
     & h1,
-    h2 {
+    h2,h3 {
         color: rgb(var(--blue-6));
     }
 

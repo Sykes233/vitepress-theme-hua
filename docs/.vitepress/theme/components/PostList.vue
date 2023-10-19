@@ -13,7 +13,7 @@
                             ></Space
                         >
                         <template v-if="post.frontmatter.top">
-                            <span>
+                            <span style="color:var(--color-neutral-10)">
                                 <i class="bi bi-arrow-bar-up"></i>
                                 <span>置顶文章</span>
                             </span>
@@ -75,11 +75,9 @@ let comparer = (a, b) => {
     }
 }
 posts.sort(comparer)
-posts.map((item,index) => {
-   if(item.frontmatter.top){
-    posts.unshift(posts.splice(index , 1)[0]);
-   }
+posts.map((item, index) => {
+    if (item.frontmatter.top) {
+        posts.unshift(posts.splice(index, 1)[0])
+    }
 })
-
-
 </script>
