@@ -6,6 +6,6 @@ export default defineConfig({
   title: "hua's Blog",
   description: "一个个人blog",
   srcDir: './posts',
-  cleanUrls: true,
+  cleanUrls: false,
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]]
 })

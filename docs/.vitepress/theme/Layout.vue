@@ -4,8 +4,9 @@ import NavBar from './components/NavBar.vue'
 import MyLayout from './components/MyLayout.vue'
 import PostList from './components/PostList.vue'
 import PostContent from './components/PostContent.vue'
+import ToolBar from './components/ToolBar.vue'
 
-const { site, frontmatter } = useData()
+const { frontmatter } = useData()
 </script>
 
 <template>
@@ -18,18 +19,21 @@ const { site, frontmatter } = useData()
         <template #content>
             <div class="content">
                 <div v-if="frontmatter.layout == 'post' || frontmatter.layout == 'about'">
-                    <PostContent>
-                    </PostContent>
+                    <PostContent> </PostContent>
+                    <ToolBar></ToolBar>
                 </div>
                 <div v-else-if="frontmatter.layout == 'home'">
                     <PostList></PostList>
+                    
+                </div>
+                <div v-else>
+                    <h1 class="not_found">404 not found!</h1>
+                    <h2 class="not_found">输错网址了吧？୧[ * ಡ ▽ ಡ * ]୨</h2>
                 </div>
             </div>
         </template>
         <template #footer>
-            <div class="footer">
-                Powered by Hua © 2023
-            </div>
+            <div class="footer">Powered by Hua © 2023</div>
         </template>
     </MyLayout>
 </template>
@@ -53,4 +57,9 @@ const { site, frontmatter } = useData()
     max-height: 5rem;
     color: var(--color-text-1);
 }
+
+.not_found{
+    color: var(--color-text-1);;
+}
+
 </style>

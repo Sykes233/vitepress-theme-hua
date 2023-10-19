@@ -1,10 +1,8 @@
 <template>
-        <Content class="postContent" />
+    <Content class="postContent" />
 </template>
 
 <style lang="scss">
-
-
 .postContent {
     margin: 0 1rem;
     & h1 {
@@ -15,7 +13,8 @@
         font-size: 1rem;
     }
 
-    & h1,h2 {
+    & h1,
+    h2 {
         color: rgb(var(--blue-6));
     }
 
@@ -53,7 +52,7 @@
     & a:hover {
         border-bottom: 1px solid var(--color-text-1);
     }
-    & pre code{
+    & pre code {
         display: block;
         border: none;
         padding-left: 12px;
@@ -62,20 +61,20 @@
         width: fit-content;
     }
 
-    & .vp-adaptive-theme{
+    & .vp-adaptive-theme {
         position: relative;
         background-color: rgb(var(--gray-2));
         border-radius: 14px;
         z-index: 1;
     }
-    & pre{
+    & pre {
         padding: 14px 0;
         overflow-x: auto;
         word-spacing: normal;
         word-wrap: normal;
         word-break: normal;
     }
-    & .vp-adaptive-theme .copy{
+    & .vp-adaptive-theme .copy {
         position: absolute;
         top: 4px;
         right: 4px;
@@ -90,13 +89,13 @@
         background-position: 50%;
         background-size: 20px;
         background-repeat: no-repeat;
-        transition: opacity .4s;
+        transition: opacity 0.4s;
         border: none;
     }
-    & .vp-adaptive-theme .copy:hover{
+    & .vp-adaptive-theme .copy:hover {
         opacity: 1;
     }
-    & .vp-adaptive-theme .lang{
+    & .vp-adaptive-theme .lang {
         position: absolute;
         top: 4px;
         right: 10px;
@@ -104,9 +103,9 @@
         font-size: 12px;
         font-weight: 500;
         color: var(--color-neutral-6);
-        transition: color .5s;
+        transition: color 0.5s;
     }
-    & .details{
+    & .details {
         color: var(--color-text-1);
     }
 }

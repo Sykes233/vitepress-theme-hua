@@ -1,19 +1,28 @@
 <template>
     <div class="list">
         <h1>文章列表</h1>
-        <a-space direction="vertical" size="medium" class="posts" fill>
+        <Space direction="vertical" size="medium" class="posts" fill>
             <template v-for="post in posts">
                 <template v-if="post.frontmatter.layout == 'post'">
                     <div class="one-post">
-                        <a-space size="small" class="time"
-                            ><i class="bi bi-calendar3"></i
-                            ><span>{{ dayjs(post.frontmatter.mtime).format('YYYY-MM-DD')  }}</span></a-space
+                        <Space size="small" class="time">
+                            <i class="bi bi-calendar3"></i>
+
+                            <span>
+                                {{ dayjs(post.frontmatter.mtime).format('YYYY-MM-DD') }}</span
+                            ></Space
                         >
+                        <template v-if="post.frontmatter.top">
+                            <span>
+                                <i class="bi bi-arrow-bar-up"></i>
+                                <span>置顶文章</span>
+                            </span>
+                        </template>
                         <a :href="post.url" class="title">{{ post.frontmatter.title }}</a>
                     </div>
                 </template>
             </template>
-        </a-space>
+        </Space>
     </div>
 </template>
 
@@ -55,14 +64,22 @@ h1 {
 }
 </style>
 <script setup>
+import { Space } from '@arco-design/web-vue'
 import { data as posts } from '../../posts.data.js'
 import dayjs from 'dayjs'
 let comparer = (a, b) => {
-    if(dayjs(a.frontmatter.mtime).isBefore(dayjs(b.frontmatter.mtime))) {
+    if (dayjs(a.frontmatter.mtime).isBefore(dayjs(b.frontmatter.mtime))) {
         return 1
     } else {
         return -1
     }
 }
 posts.sort(comparer)
+posts.map((item,index) => {
+   if(item.frontmatter.top){
+    posts.unshift(posts.splice(index , 1)[0]);
+   }
+})
+
+
 </script>

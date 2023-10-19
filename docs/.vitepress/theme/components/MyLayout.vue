@@ -1,13 +1,17 @@
 <template>
-	<a-layout>
-		<a-layout-header>
-			<slot name="header"></slot>
-		</a-layout-header>
-		<a-layout-content>
-			<slot name="content"></slot>
-		</a-layout-content>
-		<a-layout-footer>
-			<slot name="footer"></slot>
-		</a-layout-footer>
-	</a-layout>
+    <Layout>
+        <LayoutHeader>
+            <slot name="header"></slot>
+        </LayoutHeader>
+        <LayoutContent>
+            <slot name="content"></slot>
+        </LayoutContent>
+        <LayoutFooter>
+            <slot name="footer"></slot>
+        </LayoutFooter>
+    </Layout>
 </template>
+
+<script setup>
+import { LayoutHeader, Layout, LayoutContent, LayoutFooter } from '@arco-design/web-vue'
+</script>

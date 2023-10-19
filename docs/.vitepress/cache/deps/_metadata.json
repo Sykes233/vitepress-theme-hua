@@ -1,33 +1,42 @@
 {
-  "hash": "041d2a1d",
-  "browserHash": "86764440",
+  "hash": "2ef4ff94",
+  "browserHash": "b822b069",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "23e48de3",
+      "fileHash": "1f2e9361",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "3c73dd26",
+      "fileHash": "27a6e0d1",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "df19a73f",
       "needsInterop": false
     },
     "@arco-design/web-vue": {
       "src": "../../../../node_modules/@arco-design/web-vue/es/index.js",
       "file": "@arco-design_web-vue.js",
-      "fileHash": "0562cc7d",
+      "fileHash": "c4bcea89",
       "needsInterop": false
     },
     "dayjs": {
       "src": "../../../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
-      "fileHash": "8016c76d",
+      "fileHash": "413a08c5",
       "needsInterop": true
     }
   },
   "chunks": {
+    "chunk-J4VLYDXT": {
+      "file": "chunk-J4VLYDXT.js"
+    },
     "chunk-V634PGSD": {
       "file": "chunk-V634PGSD.js"
     },

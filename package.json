@@ -2,7 +2,11 @@
   "type": "module",
   "devDependencies": {
     "@arco-design/web-vue": "^2.52.1",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "bootstrap-icons": "^1.11.1",
+    "eslint": "^8.51.0",
+    "eslint-plugin-vue": "^9.17.0",
     "sass": "^1.69.3",
     "vitepress": "^1.0.0-rc.21"
   },
@@ -12,6 +16,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4"
   }
 }

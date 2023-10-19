@@ -6,39 +6,49 @@
         </a>
         <ul class="nav_item">
             <li>
-                <a href="/"><i class="bi bi-house"></i>首页</a>
+                <a href="/"><i class="bi bi-house"></i><span>首页</span></a>
             </li>
             <li>
-                <a href="/about"><i class="bi bi-person"></i>关于</a>
+                <a href="/about"><i class="bi bi-person"></i><span>关于</span></a>
             </li>
         </ul>
         <span class="switchDark">
-            <template v-if="switchBtn">
+            <template v-if="mode">
                 <i class="bi bi-moon-fill"></i>
             </template>
             <template v-else>
                 <i class="bi bi-brightness-high"></i>
             </template>
-            <a-switch v-model="switchBtn"/>
+            <Switch v-model="mode" />
         </span>
     </div>
 </template>
 
 <script setup>
-import {ref, watch} from 'vue';
+import { useThemeStore } from '../store/ProductStore.js';
+import { storeToRefs } from 'pinia'
+import {  watch } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-const switchBtn = ref(false)
-watch(switchBtn, async (newVal)=>{
-    
-    if(newVal) {
-        document.body.setAttribute('arco-theme', 'dark')
-    } else {
-        document.body.removeAttribute('arco-theme')
+import { Switch } from '@arco-design/web-vue'
+const store = useThemeStore()
+const { mode } = storeToRefs(store)
+watch(
+    mode,
+    async (newVal) => {
+        if (newVal) {
+            document.body.setAttribute('arco-theme', 'dark')
+        } else {
+            document.body.removeAttribute('arco-theme')
+        }
     }
-}, { immediate: true })
+)
 </script>
 
 <style scoped>
+.nav_item li {
+    list-style: none;
+    padding: 0 15px;
+}
 .logo {
     text-decoration: none;
     color: var(--color-neutral-10);
@@ -52,7 +62,7 @@ watch(switchBtn, async (newVal)=>{
     transform: translateY(-50%);
 }
 
-.switchDark{
+.switchDark {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +87,6 @@ watch(switchBtn, async (newVal)=>{
 }
 
 .nav:hover {
-    /* box-shadow: 0 10px 10px rgba(129, 129, 129, 0.5); */
     background-color: var(--color-neutral-2);
 }
 
@@ -113,4 +122,3 @@ watch(switchBtn, async (newVal)=>{
     transform: rotate(0.5turn);
 }
 </style>
-../posts.data.mjs

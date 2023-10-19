@@ -4,7 +4,11 @@ mtime: 2021-10-26
 title: 关于我把Sakura主题的个性签名魔改成一言接口这件事
 ---
 
-<a-alert>这篇是以前用halo CMS的时候写的，只适用于halo</a-alert>
+<script setup>
+  import { Alert } from '@arco-design/web-vue'
+</script>
+
+<Alert>这篇是以前用halo CMS的时候写的，只适用于halo</Alert>
 
 # 前言
 
