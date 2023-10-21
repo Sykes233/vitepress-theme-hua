@@ -1,23 +1,27 @@
 <template>
     <div class="nav">
         <a href="/" class="logo">
-            <i class="bi bi-code"></i>
+            <CodeIcon></CodeIcon>
             <span class="logo_name">Hua</span>
         </a>
         <ul class="nav_item">
             <li>
-                <a href="/"><i class="bi bi-house"></i><span>首页</span></a>
+                <a href="/"
+                    ><HomeIcon></HomeIcon><span>首页</span></a
+                >
             </li>
             <li>
-                <a href="/about"><i class="bi bi-person"></i><span>关于</span></a>
+                <a href="/about.html"
+                    ><ProfileIcon></ProfileIcon><span>关于</span></a
+                >
             </li>
         </ul>
         <span class="switchDark">
             <template v-if="mode">
-                <i class="bi bi-moon-fill"></i>
+                <MoonIcon></MoonIcon>
             </template>
             <template v-else>
-                <i class="bi bi-brightness-high"></i>
+                <SunIcon></SunIcon>
             </template>
             <Switch v-model="mode" />
         </span>
@@ -25,23 +29,24 @@
 </template>
 
 <script setup>
-import { useThemeStore } from '../store/ProductStore.js';
+import { useThemeStore } from '../store/ProductStore.js'
 import { storeToRefs } from 'pinia'
-import {  watch } from 'vue'
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import { watch } from 'vue'
 import { Switch } from '@arco-design/web-vue'
+import CodeIcon from '../icons/CodeIcon.vue'
+import HomeIcon from '../icons/HomeIcon.vue'
+import ProfileIcon from '../icons/ProfileIcon.vue'
+import MoonIcon from '../icons/MoonIcon.vue'
+import SunIcon from '../icons/SunIcon.vue'
 const store = useThemeStore()
 const { mode } = storeToRefs(store)
-watch(
-    mode,
-    async (newVal) => {
-        if (newVal) {
-            document.body.setAttribute('arco-theme', 'dark')
-        } else {
-            document.body.removeAttribute('arco-theme')
-        }
+watch(mode, async (newVal) => {
+    if (newVal) {
+        document.body.setAttribute('arco-theme', 'dark')
+    } else {
+        document.body.removeAttribute('arco-theme')
     }
-)
+})
 </script>
 
 <style scoped>
@@ -110,15 +115,12 @@ watch(
     display: flex;
     align-items: center;
 }
-.nav_item li i {
-    font-size: 1.3rem;
-}
-.logo i {
+.logo .logo-icon {
     font-size: 2rem;
     transition: 0.5s;
 }
 
-.logo:hover i {
+.logo:hover .logo-icon {
     transform: rotate(0.5turn);
 }
 </style>

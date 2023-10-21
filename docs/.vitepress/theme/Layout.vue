@@ -3,8 +3,9 @@ import { useData } from 'vitepress'
 import NavBar from './components/NavBar.vue'
 import MyLayout from './components/MyLayout.vue'
 import PostList from './components/PostList.vue'
-import PostContent from './components/PostContent.vue'
 import ToolBar from './components/ToolBar.vue'
+import PostContent from './components/PostContent.vue'
+
 
 const { frontmatter } = useData()
 </script>
@@ -20,7 +21,7 @@ const { frontmatter } = useData()
             <div class="content">
                 <div v-if="frontmatter.layout == 'post' || frontmatter.layout == 'about'">
                     <PostContent> </PostContent>
-                    <ToolBar></ToolBar>
+                    <ClientOnly><ToolBar></ToolBar></ClientOnly>
                 </div>
                 <div v-else-if="frontmatter.layout == 'home'">
                     <PostList></PostList>

@@ -6,7 +6,7 @@
                 <template v-if="post.frontmatter.layout == 'post'">
                     <div class="one-post">
                         <Space size="small" class="time">
-                            <i class="bi bi-calendar3"></i>
+                            <CalendarIcon></CalendarIcon>
 
                             <span>
                                 {{ dayjs(post.frontmatter.mtime).format('YYYY-MM-DD') }}</span
@@ -14,8 +14,7 @@
                         >
                         <template v-if="post.frontmatter.top">
                             <span style="color:var(--color-neutral-10)">
-                                <i class="bi bi-arrow-bar-up"></i>
-                                <span>置顶文章</span>
+                                <PinnedArticle></PinnedArticle>
                             </span>
                         </template>
                         <a :href="post.url" class="title">{{ post.frontmatter.title }}</a>
@@ -67,6 +66,8 @@ h1 {
 import { Space } from '@arco-design/web-vue'
 import { data as posts } from '../../posts.data.js'
 import dayjs from 'dayjs'
+import CalendarIcon from '../icons/CalendarIcon.vue';
+import PinnedArticle from './PinnedArticle.vue'
 let comparer = (a, b) => {
     if (dayjs(a.frontmatter.mtime).isBefore(dayjs(b.frontmatter.mtime))) {
         return 1

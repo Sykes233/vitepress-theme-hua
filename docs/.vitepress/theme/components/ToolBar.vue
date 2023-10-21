@@ -3,22 +3,23 @@
         <div class="toggle">
             <button class="toggle_button" @click="toggle">
                 <template v-if="mode">
-                    <i class="bi bi-moon-fill"></i>
+                    <MoonIcon></MoonIcon>
                 </template>
                 <template v-else>
-                    <i class="bi bi-brightness-high"></i>
+                    <SunIcon></SunIcon>
                 </template>
             </button>
         </div>
         <div class="to_top">
             <button class="to_top_button" @click="scrollToTop">
-                <i class="bi bi-arrow-up-circle"></i>
+                <ToolBarTopIcon class="top-icon"></ToolBarTopIcon>
             </button>
         </div>
     </div>
 </template>
 
 <style scoped>
+
 .container {
 	z-index: 100;
     position: fixed;
@@ -35,6 +36,9 @@ button {
     border-radius: 50%;
     background-color: rgb(var(--arcoblue-6));
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover{
@@ -44,16 +48,14 @@ button:hover{
     margin-bottom: 10px;
 }
 
-i {
-    color: var(--color-neutral-2);
-    font-size: 20px;
-}
 </style>
 
 <script setup>
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import SunIcon from '../icons/SunIcon.vue';
+import MoonIcon from '../icons/MoonIcon.vue';
 import { useThemeStore } from '../store/ProductStore.js'
 import { storeToRefs } from 'pinia'
+import ToolBarTopIcon from '../icons/ToolBarTopIcon.vue';
 
 const store = useThemeStore()
 const { mode } = storeToRefs(store)
