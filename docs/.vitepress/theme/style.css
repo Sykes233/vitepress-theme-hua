@@ -1,4 +1,7 @@
-
+@font-face {
+  font-family: 'AlimamaFangYuanTiVF-Thin';
+  src: url(./fonts/AlimamaFangYuanTiVF-Thin.woff2);
+}
 html {
   min-height: 100vh;
   position: relative;
@@ -10,6 +13,7 @@ html {
     box-sizing: border-box;
     margin: 0;
     font-weight: normal;
+    font-family: AlimamaFangYuanTiVF-Thin, Arial, Helvetica;
 }
 
 body {
