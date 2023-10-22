@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div ref="containerRef" class="container">
         <div class="toggle">
             <button class="toggle_button" @click="toggle">
                 <template v-if="mode">
@@ -12,25 +12,24 @@
         </div>
         <div class="to_top">
             <button class="to_top_button" @click="scrollToTop">
-                <ToolBarTopIcon class="top-icon"></ToolBarTopIcon>
+                <ToolBarTopIcon width="20" height="20"></ToolBarTopIcon>
             </button>
         </div>
     </div>
 </template>
 
 <style scoped>
-
 .container {
-	z-index: 100;
+    z-index: 100;
     position: fixed;
     right: 10px;
     bottom: 30px;
     transition: 0.5s;
-	display: none;
+    display: none;
 }
 button {
-	outline: none;
-	cursor: pointer;
+    outline: none;
+    cursor: pointer;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -41,38 +40,47 @@ button {
     align-items: center;
 }
 
-button:hover{
-	background-color: rgb(var(--arcoblue-5));
+button:hover {
+    background-color: rgb(var(--arcoblue-5));
 }
 .toggle {
     margin-bottom: 10px;
 }
-
 </style>
 
 <script setup>
-import SunIcon from '../icons/SunIcon.vue';
-import MoonIcon from '../icons/MoonIcon.vue';
+import SunIcon from '../icons/SunIcon.vue'
+import MoonIcon from '../icons/MoonIcon.vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useThemeStore } from '../store/ProductStore.js'
 import { storeToRefs } from 'pinia'
-import ToolBarTopIcon from '../icons/ToolBarTopIcon.vue';
+import ToolBarTopIcon from '../icons/TopIcon.vue'
 
 const store = useThemeStore()
 const { mode } = storeToRefs(store)
+const containerRef = ref()
 
 function toggle() {
     mode.value = !mode.value
 }
 
 function scrollToTop() {
-	window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-document.addEventListener('scroll', () => {
+const scrollFunc = () => {
     if (window.scrollY > 200) {
-        document.querySelector('.container').setAttribute('style', 'display:block')
+        containerRef.value.setAttribute('style', 'display:block')
     } else {
-        document.querySelector('.container').setAttribute('style', 'display:none')
+        containerRef.value.setAttribute('style', 'display:none')
     }
+}
+
+onMounted(() => {
+    document.addEventListener('scroll', scrollFunc)
+})
+
+onUnmounted(() => {
+    document.removeEventListener('scroll', scrollFunc)
 })
 </script>

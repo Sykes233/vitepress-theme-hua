@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'AlimamaFangYuanTiVF-Thin';
   src: url(./fonts/AlimamaFangYuanTiVF-Thin.woff2);
+  font-display: swap;
 }
 html {
   min-height: 100vh;

@@ -1,6 +1,6 @@
 <template>
     <div class="pinned">
-        <TopIcon></TopIcon>
+        <TopIcon width="15" height="15"></TopIcon>
         <span>置顶文章</span>
     </div>
 </template>

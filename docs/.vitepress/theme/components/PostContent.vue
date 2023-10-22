@@ -18,7 +18,8 @@
     }
 
     & h1,
-    h2,h3 {
+    h2,
+    h3 {
         color: rgb(var(--blue-6));
     }
 
@@ -30,6 +31,8 @@
 
     & h1,
     h2,
+    h3,
+    .details,
     p {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -111,6 +114,26 @@
     }
     & .details {
         color: var(--color-text-1);
+    }
+
+    & .custom-block.details {
+        border-color: transparent;
+        color: var(--color-text-1);
+        background-color: var(--color-neutral-2);
+    }
+
+    & .custom-block {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 16px 16px 8px;
+        line-height: 24px;
+        font-size: 16px;
+    }
+
+    & .custom-block.details summary {
+        margin: 0 0 8px;
+        font-weight: 700;
+        cursor: pointer;
     }
 }
 </style>
