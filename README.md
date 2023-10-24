@@ -4,7 +4,7 @@ a simple theme for vitepress
 
 [live demo](https://lijunhua.cn)
 
-![preview](preview.jpeg)
+![preview](preview.png)
 
 # quick start
 
