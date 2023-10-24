@@ -5,6 +5,7 @@ import MyLayout from './components/MyLayout.vue'
 import PostList from './components/PostList.vue'
 import ToolBar from './components/ToolBar.vue'
 import PostContent from './components/PostContent.vue'
+import ReadProgress from './components/ReadProgress.vue'
 
 
 const { frontmatter } = useData()
@@ -22,6 +23,7 @@ const { frontmatter } = useData()
                 <div v-if="frontmatter.layout == 'post' || frontmatter.layout == 'about'">
                     <PostContent> </PostContent>
                     <ClientOnly><ToolBar></ToolBar></ClientOnly>
+                    <ReadProgress></ReadProgress>
                 </div>
                 <div v-else-if="frontmatter.layout == 'home'">
                     <PostList></PostList>
@@ -34,7 +36,7 @@ const { frontmatter } = useData()
             </div>
         </template>
         <template #footer>
-            <div class="footer">Powered by <a href="http://lijunhua.cn">Hua</a> © 2023</div>
+            <div class="footer">Powered by <a href="http://lijunhua.cn">Hua</a> © 2023&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">蒙ICP备20001441号-2</a></div>
         </template>
     </MyLayout>
 </template>

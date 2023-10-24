@@ -51,14 +51,16 @@ button:hover {
 <script setup>
 import SunIcon from '../icons/SunIcon.vue'
 import MoonIcon from '../icons/MoonIcon.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useThemeStore } from '../store/ProductStore.js'
 import { storeToRefs } from 'pinia'
+import {useScroll} from '../utils/scroll.js'
 import ToolBarTopIcon from '../icons/TopIcon.vue'
 
 const store = useThemeStore()
 const { mode } = storeToRefs(store)
 const containerRef = ref()
+const { scrollY } = useScroll()
 
 function toggle() {
     mode.value = !mode.value
@@ -68,19 +70,14 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-const scrollFunc = () => {
-    if (window.scrollY > 200) {
-        containerRef.value.setAttribute('style', 'display:block')
+watch(scrollY, (newVal) =>{
+    if(newVal > 200){
+        containerRef.value.style.display = 'block'
     } else {
-        containerRef.value.setAttribute('style', 'display:none')
+        containerRef.value.style.display = 'none'
     }
-}
-
-onMounted(() => {
-    document.addEventListener('scroll', scrollFunc)
 })
 
-onUnmounted(() => {
-    document.removeEventListener('scroll', scrollFunc)
-})
+
+
 </script>
